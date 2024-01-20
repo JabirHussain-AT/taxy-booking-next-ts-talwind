@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-const BASE_URL = `https://api.mapbox.com/search/searchbox/v1/suggest?q={search_text}`
+const BASE_URL = `https://api.mapbox.com/search/searchbox/v1/suggest`
 
 export async function GET(request : any) {
     const {searchParams} = new URL(request.url); 

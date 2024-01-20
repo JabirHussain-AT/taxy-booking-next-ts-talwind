@@ -24,8 +24,9 @@ const AutoCompleteAddress = () => {
         throw new Error(`Failed to fetch data: ${res.status}`);
       }
 
-      const result = await res.json();
+      const result = [await res.json()]
       setaddressResult(result);
+      console.log(addressResult,'============')
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -42,9 +43,9 @@ const AutoCompleteAddress = () => {
           className="bg-white p-1 border-[1px] w-full rounded-md outline-none focus:border-yellow-300"
         />
       </div>
-      {addressResult?.suggestions && addressResult.suggestions.length > 0 && (
+      {addressResult[0]?.data?.suggestions && addressResult[0].data.suggestions.length > 0 && (
         <div>
-          {addressResult.suggestions.map((item: any, index: number) => (
+          {addressResult[0]?.data?.suggestions.map((item: any, index: number) => (
             <div key={index}>
               <h2>{item.full_address}</h2>
             </div>
